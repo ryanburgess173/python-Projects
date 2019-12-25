@@ -11,7 +11,7 @@ def main():
     customer = Customer.Customer("Johnathan", "Burgess", "336-508-8174",
                                  "ryanburgess173@outlook.com", "000-00-0000", address)
     savingsAccount = Savings.Savings(customer, 7500, 4.5, 6)
-    print(savingsAccount)
+    print(savingsAccount.get_customer().get_firstName())
 
 
 main()
