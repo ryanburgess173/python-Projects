@@ -1,7 +1,10 @@
-import Account
+from Account import Account
 
 
 class Savings(Account):
+
+    __apy = 0.0
+    __max_withdraws = 0
 
     def __init__(self, customer, initial_balance, apy, max_withdraws):
         super().__init__(initial_balance, apy)

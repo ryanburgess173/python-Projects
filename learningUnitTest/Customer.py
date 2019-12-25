@@ -1,10 +1,10 @@
 class Customer:
 
-    __firstName = ""
-    __lastName = ""
-    __phone = ""
-    __email = ""
-    __ssn = ""
+    __firstName = None
+    __lastName = None
+    __phone = None
+    __email = None
+    __ssn = None
     __address = None
 
     def __init__(self, firstName, lastName, phone, email, ssn, address):
