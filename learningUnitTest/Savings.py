@@ -10,3 +10,15 @@ class Savings(Account):
         super().__init__(initial_balance, apy)
         self.__apy = apy
         self.__max_withdraws = max_withdraws
+
+    def get_apy(self):
+        return self.__apy
+
+    def set_apy(self, newAPY):
+        self.__apy = newAPY
+
+    def get_max_withdraws(self):
+        return self.__max_withdraws
+
+    def set_max_withdraws(self, newMaxWithdraws):
+        self.__max_withdraws = newMaxWithdraws
