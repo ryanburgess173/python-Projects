@@ -7,7 +7,7 @@ class Savings(Account):
     __max_withdraws = 0
 
     def __init__(self, customer, initial_balance, apy, max_withdraws):
-        super().__init__(initial_balance, apy)
+        super().__init__(customer, initial_balance)
         self.__apy = apy
         self.__max_withdraws = max_withdraws
 
