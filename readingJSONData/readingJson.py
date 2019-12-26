@@ -1,5 +1,6 @@
 import json
-with open("/home/rburgess/Documents/python-Projects/readingJSONData/persons.json", "r") as read_file:
+
+with open("persons.json", "r") as read_file:
     data = json.load(read_file)
 
-print(data)
+print(data["firstName"])
