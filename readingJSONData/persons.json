@@ -1,0 +1,17 @@
+{
+    "firstName": "Johnathan",
+    "lastName": "Burgess",
+    "phone": "(336) 508-8174",
+    "email": "ryanburgess173@outlook.com",
+    "age": 21,
+    "accounts": [
+        {
+            "number": "1253353",
+            "type": "savings"
+        },
+        {
+            "number": "7433444",
+            "type": "checking"
+        }
+    ]
+}
