@@ -11,7 +11,7 @@ def main():
             input("Would you like to insert a new customer record? (y/n)"))
         if(userChoice != 'y'):
             print("Okay, thank you for your time.")
-            break
+            continueInserting = False
         else:
             name, address = getUserInput()
             insertRecord(mycursor, name, address)
