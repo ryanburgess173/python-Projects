@@ -21,16 +21,23 @@ def main():
         Team("Jacksonville", "Jaguars", "AFC-South")
     ]
 
-    possibleScores = [0, 3, 7, 10, 13, 14, 17, 20,
+    possibleScores = [0, 3, 6, 7, 10, 13, 14, 17, 20,
                       21, 24, 28, 31, 35, 38, 42, 49, 52, 56]
 
     num = 0
-    for i in range(0,len(teams),1):
-        for j in range(len(teams)-1, -1, -1):
-            if(j!=i):
-                num = num + 1
-                teams[i].addGameResult(Result(teams[j], possibleScores[random.randint(1, 16)], possibleScores[random.randint(1, 16)], "9/8/1960", "Regular Season"))
-        num = 0
+    currentTeam = 0
+    currentOpponent = 15
+    while(currentTeam < len(teams)):
+        while(currentOpponent > 0):
+            score1 = possibleScores[random.randint(1, 18)]
+            score2 = possibleScores[random.randint(1, 18)]
+            if(score1!=score2):
+                if(currentTeam!=currentOpponent):
+                    teams[currentTeam].addGameResult(
+                        Result(teams[currentOpponent], score1, score2, "9/8/1960", "Regular Season"))
+                    print("Current opponent", currentOpponent)
+                    currentOpponent-=1
+        currentTeam+=1
 
     wins = []
     losses = []
@@ -41,7 +48,8 @@ def main():
         ties.append(0)
     
     for i in range(len(teams)):
-        for j in range(15):
+        for j in range(14):
+            print(j)
             w_or_l = teams[i].getGameResults(j).getResult()
             if(w_or_l == "W"):
                 wins[i]+=1
