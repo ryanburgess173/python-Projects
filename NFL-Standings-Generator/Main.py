@@ -1,5 +1,6 @@
 from Team import Team
 from Result import Result
+import random
 def main():
     teams = [
         Team("New England","Patriots", "AFC-East"),
@@ -9,26 +10,38 @@ def main():
         Team("Kansas City", "Chiefs", "AFC-West"),
         Team("Denver", "Broncos", "AFC-West"),
         Team("Oakland", "Raiders", "AFC-West"),
-        Team("San Diego", "Chargers", "AFC-West")
+        Team("San Diego", "Chargers", "AFC-West"),
+        Team("Baltimore", "Ravens", "AFC-North"),
+        Team("Pittsburg", "Steelers", "AFC-North"),
+        Team("Cleveland", "Browns", "AFC-North"),
+        Team("Cinncinati", "Bengals", "AFC-North"),
+        Team("Houston", "Texans", "AFC-South"),
+        Team("Tennessee", "Titans", "AFC-South"),
+        Team("Indianapolis", "Colts", "AFC-South"),
+        Team("Jacksonville", "Jaguars", "AFC-South")
     ]
 
+    possibleScores = [0, 3, 7, 10, 13, 14, 17, 20,
+                      21, 24, 28, 31, 35, 38, 42, 49, 52, 56]
+
+    num = 0
+    for i in range(0,len(teams),1):
+        for j in range(len(teams)-1, -1, -1):
+            if(j!=i):
+                num = num + 1
+                teams[i].addGameResult(Result(teams[j], possibleScores[random.randint(1, 16)], possibleScores[random.randint(1, 16)], "9/8/1960", "Regular Season"))
+        num = 0
+
+    wins = []
+    losses = []
+    ties = []
     for i in range(len(teams)):
-
-        if(i==4):
-            teams[i].addGameResult(
-                Result(teams[2], 17, 14, "9/8/1960", "Regular Season"))
-        elif((i % 2) == 0):
-            teams[i].addGameResult(
-                Result(teams[3], 28, 10, "9/1/1960", "Regular Season"))
-        else:
-            teams[i].addGameResult(Result(teams[1],0,14,"9/15/1960","Regular Season"))
-
-    wins = [0,0,0,0,0,0,0,0]
-    losses = [0, 0, 0, 0, 0, 0, 0, 0]
-    ties = [0, 0, 0, 0, 0, 0, 0, 0]
+        wins.append(0)
+        losses.append(0)
+        ties.append(0)
     
     for i in range(len(teams)):
-        for j in range(0,1):
+        for j in range(15):
             w_or_l = teams[i].getGameResults(j).getResult()
             if(w_or_l == "W"):
                 wins[i]+=1
